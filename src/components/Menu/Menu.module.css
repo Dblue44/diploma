@@ -1,0 +1,25 @@
+.main-menu {
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em !important;
+}
+.logo img {
+    height: 100%;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    height: 7em;
+}
+.theme {
+    padding-left: 30px !important;
+}
+.lang {
+    padding-left: 10px !important;
+}
+.lang fieldset {
+    visibility: hidden;
+}
+.theme fieldset {
+    visibility: hidden;
+}

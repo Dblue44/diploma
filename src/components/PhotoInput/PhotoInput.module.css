@@ -1,0 +1,41 @@
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat"),
+    url("../../fonts/Montserrat-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+.input_box input{
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.input_box img {
+    width: 3em;
+    height: 3em;
+}
+
+.input_box label {
+    margin-top: 1rem;
+    font-family: "Montserrat", serif;
+    font-weight: 600;
+}
+
+.input_box {
+    position: relative;
+    width: 12em !important;
+    height: 12em !important;
+    margin-top: 5em;
+    flex-wrap: wrap !important;
+    display: flex !important;
+    justify-content: center;
+    align-content: center;
+    border: dashed black 3px;
+    border-radius: 1em;
+}

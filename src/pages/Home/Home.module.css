@@ -1,0 +1,49 @@
+@font-face {
+    font-family: "HWT";
+    src: local("HWT"),
+    url("../../fonts/HWT Unit Gothic W03 722.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat"),
+    url("../../fonts/Montserrat-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+.main-text {
+    text-align: center;
+    font-family: "Montserrat", serif !important;
+    font-weight: 800 !important;
+    font-size: 8rem !important;
+    letter-spacing: 12px !important;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-bottom: 1rem !important;
+}
+.text-left {
+    padding-left: 4em !important;
+    text-align: left;
+    font-family: "Montserrat", serif;
+}
+.text-right {
+    padding-left: 4em !important;
+    padding-right: 2em !important;
+    text-align: right;
+    width: 17em;
+    font-family: "Montserrat", serif;
+}
+.phone img{
+    width: 100%;
+    height: 100%;
+}
+.phone {
+    width: 100%;
+    height: 100%;
+}
+.phone-text {
+    position: absolute;
+}
