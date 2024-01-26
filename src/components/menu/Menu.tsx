@@ -11,7 +11,6 @@ const Menu = () => {
     const [lang, setLang] = React.useState("0");
     const [theme, setTheme] = React.useState("Dark");
     const dispatch = useAppDispatch();
-
     const handleLang = (event: SelectChangeEvent) => {
         setLang(event.target.value);
     };

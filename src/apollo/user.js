@@ -8,3 +8,11 @@ export const ALL_USERS = gql`
         }
     }
 `;
+
+export const SEND_PHOTO = gql`
+   mutation ($file: Upload!) {
+        photoUpload(file: $file) {
+            filename
+        }
+   }     
+`;

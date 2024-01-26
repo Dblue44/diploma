@@ -27,6 +27,14 @@
     font-weight: 600;
 }
 
+.light {
+    border: dashed black 3px;
+}
+
+.dark {
+    border: dashed white 3px;
+}
+
 .input_box {
     position: relative;
     width: 12em !important;
@@ -36,6 +44,5 @@
     display: flex !important;
     justify-content: center;
     align-content: center;
-    border: dashed black 3px;
     border-radius: 1em;
 }
