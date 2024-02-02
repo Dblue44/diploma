@@ -4,8 +4,7 @@ import Grid from "@mui/material/Grid"
 import styles from "./Home.module.css";
 import {Typography} from "@mui/material";
 import PhotoInput from "../../components/photoInput/PhotoInput";
-import Phone from "../../img/phone.png"
-
+import Phone from "../../components/phone/Phone";
 const Home = () => {
     return (
         <Container>
@@ -18,7 +17,7 @@ const Home = () => {
                     MOOD TUNER
                 </Typography>
             </Container>
-            <Grid container spacing={4}>
+            <Grid container spacing={4} className={styles["main-content"]}>
                 <Grid item md={3} className={styles["text-left"]}>
                     <Typography
                         variant="h6"
@@ -28,11 +27,7 @@ const Home = () => {
                     </Typography>
                 </Grid>
                 <Grid item md={5}>
-                    <Container className={styles["phone"]}>
-                        <Container className={styles["phone-content"]}>
-                            132
-                        </Container>
-                    </Container>
+                    <Phone/>
                 </Grid>
                 <Grid item md={4}>
                     <Container className={styles["text-right"]}>

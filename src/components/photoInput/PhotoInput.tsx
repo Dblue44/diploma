@@ -7,6 +7,7 @@ import {SEND_PHOTO} from "../../apollo/user";
 import {useMutation} from "@apollo/client";
 import {useAppDispatch, useAppSelector} from "../../redux/hooks";
 import {updateTheme} from "../../redux/features/user/userReducer";
+import {motion} from "framer-motion";
 
 const PhotoInput = () => {
     const theme = useAppSelector((state) => state.user.theme)
@@ -27,7 +28,14 @@ const PhotoInput = () => {
     };
 
     return (
-        <Container className={`${theme ? styles["dark"] : styles["light"]} ${styles["input_box"]}`}>
+        <Container
+            className={`${theme ? styles["dark"] : styles["light"]} ${styles["input_box"]}`}
+            component={motion.div}
+            whileHover={{
+                scale: 1.1,
+                transition: { duration: 0.3 }
+            }}
+        >
             <img src={InputLogo} alt="Logo"/>
             <label>Загрузить фото</label>
             <input type={"file"} accept={"image/*"} onChange={handleImageUpload}/>

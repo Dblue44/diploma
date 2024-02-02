@@ -34,9 +34,6 @@ const Menu = () => {
                     <MenuItem value={1}>ENG</MenuItem>
                 </Select>
             </Grid>
-            <Grid item md={1} className={styles["logo"]}>
-                <img src={Logo}  alt="Logo"/>
-            </Grid>
             <Grid item md={1} className={styles["theme"]}>
                 <Select
                     defaultValue={"Dark"}

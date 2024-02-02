@@ -1,11 +1,16 @@
 import React from "react";
-import Container from "@mui/material/Container";
+import {Container, Grid} from "@mui/material";
 const Music = () => {
 
     return (
-        <Container>
-
-        </Container>
+        <Grid container spacing={4}>
+            <Grid item md={6}>
+                123
+            </Grid>
+            <Grid item md={6}>
+                123
+            </Grid>
+        </Grid>
     )
 }
 

@@ -1,0 +1,9 @@
+.footer {
+    background-color: black;
+    border-radius: 20px 20px 0 0;
+    height: 3em;
+    display: flex !important;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
