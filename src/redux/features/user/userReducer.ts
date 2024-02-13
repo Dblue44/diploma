@@ -24,6 +24,7 @@ const userReducer = createSlice({
         updateLoadPhoto(state, action: PayloadAction<boolean>) {
             state.loadPhoto = action.payload
         },
+
     },
 });
 export const {updateTheme, updateLoadPhoto} = userReducer.actions;

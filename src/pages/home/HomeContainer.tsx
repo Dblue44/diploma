@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 import Home from "./Home";
 
 
-const MenuContainer = () => {
+const HomeContainer = () => {
     const navigate = useNavigate();
     const isPhotoLoaded = useAppSelector((state) => state.user.loadPhoto);
 
@@ -19,4 +19,4 @@ const MenuContainer = () => {
     )
 }
 
-export default MenuContainer;
+export default HomeContainer;

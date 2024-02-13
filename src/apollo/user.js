@@ -1,18 +1,18 @@
 import {gql} from '@apollo/client'
 
-export const ALL_USERS = gql`
-    query AllUsers {
-        allUsers{
-            id,
-            name
-        }
-    }
-`;
 
 export const SEND_PHOTO = gql`
-   mutation ($file: Upload!) {
+    type Music {
+        id: String
+        author: String
+        trackName: String
+        photoId: String
+    }
+
+    mutation ($file: Upload!) {
         photoUpload(file: $file) {
-            filename
+            prediction: [Float]
+            music: [Music]
         }
-   }     
+    }     
 `;

@@ -3,7 +3,7 @@ import Music from './Music'
 import {useAppSelector} from "../../redux/hooks";
 import {useNavigate} from "react-router-dom";
 const MusicContainer = () => {
-    const navigate = useNavigate();
+    /*const navigate = useNavigate();
     const isPhotoLoaded = useAppSelector((state) => state.user.loadPhoto);
 
     useEffect(() => {
@@ -11,7 +11,7 @@ const MusicContainer = () => {
             navigate("/")
         }
     }, [isPhotoLoaded, navigate])
-
+*/
     return (
         <Music />
     )
