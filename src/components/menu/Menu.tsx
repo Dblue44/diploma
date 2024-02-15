@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../img/Icon.svg"
+//import Logo from "../../img/Icon.svg"
 import styles from "./Menu.module.css";
 import { Select, MenuItem, Grid } from "@mui/material";
 import { SelectChangeEvent } from '@mui/material/Select';

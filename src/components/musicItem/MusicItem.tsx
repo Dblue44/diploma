@@ -5,16 +5,14 @@ import {useAppSelector} from "../../redux/hooks";
 import {motion} from "framer-motion";
 
 export interface musicProps {
-    data: {
-        id: String;
-        artist: String;
-        trackName: String;
-        photoId: String;
-    }
+    id: String;
+    artist: String;
+    trackName: String;
+    photoId: String;
 
 }
 
-const MusicItem = ({data}: musicProps) => {
+const MusicItem = (props: musicProps) => {
     const theme = useAppSelector((state) => state.user.theme)
     return (
         <Container
@@ -27,10 +25,10 @@ const MusicItem = ({data}: musicProps) => {
         >
             <div className={styles["music-item-container"]}>
                 <div className={`${theme ? styles["dark"] : styles["light"]} ${styles["music-item-name"]}`}>
-                    STARBOY
+                    {props.artist}
                 </div>
                 <div className={`${theme ? styles["dark"] : styles["light"]} ${styles["music-item-text"]}`}>
-                    The Weeknd, Daft Punk
+                    {props.trackName}
                 </div>
             </div>
         </Container>

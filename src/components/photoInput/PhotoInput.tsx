@@ -13,15 +13,22 @@ import {addMusic} from "../../redux/features/music/musicReducer";
 
 interface Music {
     id: String
-    author: String
+    artist: String
     trackName: String
     photoId: String
+}
+
+interface Prediction {
+    happy: number
+    sad: number
+    normal: number
+    angry: number
 }
 
 interface photoUpload {
     photoUpload: {
         music: Music[]
-        prediction: number[]
+        prediction: Prediction
     }
 }
 
