@@ -16,11 +16,6 @@
     opacity: 0;
 }
 
-.input_box img {
-    width: 3em;
-    height: 3em;
-}
-
 .input_box label {
     margin-top: 1rem;
     font-family: "Montserrat", serif;

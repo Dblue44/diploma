@@ -40,7 +40,6 @@ function App() {
                         <Route path="/" element={<HomeContainer/>}/>
                         <Route path="/music" element={<MusicContainer/>}/>
                     </Routes>
-                    <Footer/>
                 </Grid>
             </Suspense>
         </ThemeProvider>

@@ -19,7 +19,6 @@ const Phone = () => {
                 <MusicCard/>
                 <MusicCard/>
                 <MusicCard/>
-
             </Container>
         </Container>
     );

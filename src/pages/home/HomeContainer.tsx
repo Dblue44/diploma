@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import {useAppSelector} from "../../redux/hooks";
 import {useNavigate} from "react-router-dom";
 import Home from "./Home";
+import Footer from "../../components/footer/Footer";
 
 
 const HomeContainer = () => {
@@ -15,7 +16,11 @@ const HomeContainer = () => {
     }, [isPhotoLoaded, navigate])
 
     return (
-        <Home/>
+        <>
+            <Home/>
+            <Footer/>
+        </>
+
     )
 }
 
