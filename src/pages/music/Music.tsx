@@ -20,7 +20,6 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 interface IMusicProps {
     musics: TMusicTrack[];
-    //images: Map<string, string>;
     chartData: ChartData<"pie">;
 }
 
@@ -44,8 +43,6 @@ const playerVariants: Variants = {
         }
     }
 };
-
-//const musicTrack = require("../../assest/music.mp3");
 
 const Music = (props: IMusicProps) => {
     const [listenProgress, setListenProgress] = useState(0);

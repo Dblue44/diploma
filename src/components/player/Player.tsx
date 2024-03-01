@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Player.module.css";
 import {motion, Variants} from "framer-motion";
-import { styled } from '@mui/material/styles';
+import {styled} from '@mui/material/styles';
 import {Grid, Slider, Typography, Box, CircularProgress} from "@mui/material";
 import image from "../../img/musicCard1.png";
 import play from "../../img/Play.svg";
@@ -67,6 +67,7 @@ const Player = (props: IPlayerProps) => {
         const secondLeft = Math.floor(value - minute * 60);
         return `${minute}:${secondLeft < 10 ? `0${secondLeft}` : secondLeft}`;
     }
+
     return (
         <Grid container spacing={2}>
             <Grid item md={3}>
@@ -92,7 +93,7 @@ const Player = (props: IPlayerProps) => {
                     </Grid>
                 </Grid>
             </Grid>
-            {props.isLoadingMusic ? <CircularProgress /> :
+            {props.isLoadingMusic ? <CircularProgress/> :
                 <Grid item md={6}>
                     <Grid container spacing={0} className={styles['play-container']}>
                         <Grid

@@ -40,11 +40,11 @@ const PhotoInput = () => {
     const dispatch = useAppDispatch();
 
     const handleImageUpload = async ({
-     target: {
-         validity,
-         files: [file]
-     }
-    }: any) => {
+                                         target: {
+                                             validity,
+                                             files: [file]
+                                         }
+                                     }: any) => {
         validity.valid && await getPhoto({
             variables: {file},
             onCompleted: (data: IPhotoUpload) => {

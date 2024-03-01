@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo} from "react";
+import React, {useMemo} from "react";
 import Music from './Music'
 import {useAppDispatch, useAppSelector} from "../../redux/hooks";
 import {useNavigate} from "react-router-dom";
@@ -31,12 +31,8 @@ const data: ChartData<"pie"> = {
 const MusicContainer = () => {
     const musics: TMusicTrack[] = useAppSelector((state) => state.music.musicList);
     const prediction: Prediction = useAppSelector((state) => state.photo.prediction);
-    //const images = useAppSelector((state) => state.photo.images);
-
-    const dispatch = useAppDispatch();
 
     /*const navigate = useNavigate();
-    const isPhotoLoaded = useAppSelector((state) => state.user.loadPhoto);
 
     useEffect(() => {
         if (!isPhotoLoaded) {
@@ -49,16 +45,9 @@ const MusicContainer = () => {
         return data;
     }, [prediction]);
 
-    // useEffect(() => {
-    //     musics.forEach((music) => {
-    //         dispatch(getImage(music.photoId));
-    //     });
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, []);
     return (
         <Music
             musics={musics}
-            //images={images}
             chartData={chartData}
         />
     )
