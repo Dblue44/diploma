@@ -1,0 +1,34 @@
+.music-track-image img {
+    height: 4.2em;
+    border-radius: 10px;
+}
+.music-track-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+}
+.music-track-info div {
+    padding: 2px;
+}
+.play-container {
+    justify-content: center;
+}
+.play-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#music-track-name {
+    font-size: 1em;
+    font-weight: 500;
+}
+#music-track-author {
+    font-size: 0.8em;
+    font-weight: 300;
+}
+#play-button {
+    width: 40px;
+    height: 40px;
+}

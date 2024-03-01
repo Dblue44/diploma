@@ -3,6 +3,10 @@
     justify-content: center;
 }
 .music-list-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     padding-bottom: 1em;
     border-radius: 10px;
     height: 33em;
@@ -30,6 +34,7 @@
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
+    width: 100%;
 }
 .prediction {
     display: flex;

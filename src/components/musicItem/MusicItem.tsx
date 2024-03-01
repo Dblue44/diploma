@@ -1,25 +1,19 @@
 import React from "react";
 import Container from "@mui/material/Container";
 import styles from "./MusicItem.module.css";
-import image from "../../img/musicCard1.png";
 import play from "../../img/Play.svg";
 import { motion } from "framer-motion";
 
-type TPlayFunction = (event: React.MouseEvent<HTMLDivElement>, musicId: String) => void;
+type TPlayFunction = (event: React.MouseEvent<HTMLDivElement>, musicId: string) => void;
 
 export interface IMusicProps {
-    id: String;
-    artist: String;
-    trackName: String;
-    photoId: String;
-    image: any;
+    id: string;
+    artist: string;
+    trackName: string;
+    photoId: string;
+    //imageSrc: string;
     theme: boolean;
     clickFn: TPlayFunction;
-}
-
-const playImage = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1 }
 }
 
 const MusicItem = (props: IMusicProps) => {
@@ -38,15 +32,15 @@ const MusicItem = (props: IMusicProps) => {
                 damping: 25
             }}
         >
+            <motion.div
+                id={styles["music-item-play-container"]}
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 0.9 }}
+            >
+                <img id={styles["music-item-play"]} src={play}/>
+            </motion.div>
             <div className={styles["music-item-image"]}>
-                <img src={image} />
-                <motion.img
-                    id={styles["music-item-play"]}
-                    src={play}
-                    variants={playImage}
-                    initial="hidden"
-                    whileHover="show"
-                />
+                <img src={`http://127.0.0.1:8000/api/v1/react/photo?fileId=${props.photoId}`} />
             </div>
             <div className={styles["music-item-content"]}>
                 <div className={styles["music-item-name"]}>

@@ -13,10 +13,10 @@ import {updatePrediction} from "../../redux/features/photo/photoReducer";
 import {addMusic} from "../../redux/features/music/musicReducer";
 
 interface IMusic {
-    id: String
-    artist: String
-    trackName: String
-    photoId: String
+    id: string
+    artist: string
+    trackName: string
+    photoId: string
 }
 
 interface IPrediction {

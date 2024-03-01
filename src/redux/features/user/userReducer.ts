@@ -6,6 +6,7 @@ type UserState = {
     lang: boolean;
     loadPhoto: boolean;
     isListen: boolean;
+    isPlay: boolean;
 }
 
 const initialState: UserState = {
@@ -14,6 +15,7 @@ const initialState: UserState = {
     lang: true,
     loadPhoto: false,
     isListen: false,
+    isPlay: false
 };
 
 const userReducer = createSlice({
@@ -28,8 +30,12 @@ const userReducer = createSlice({
         },
         updateListenState(state, action: PayloadAction<boolean>){
             state.isListen = action.payload;
+            state.isPlay = action.payload;
         },
+        updatePlayState(state) {
+            state.isPlay = !state.isPlay;
+        }
     },
 });
-export const {updateTheme, updateLoadPhoto, updateListenState} = userReducer.actions;
+export const {updateTheme, updateLoadPhoto, updateListenState, updatePlayState} = userReducer.actions;
 export default userReducer.reducer;
