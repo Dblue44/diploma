@@ -40,7 +40,7 @@ const MusicItem = (props: IMusicProps) => {
                 <img id={styles["music-item-play"]} src={play}/>
             </motion.div>
             <div className={styles["music-item-image"]}>
-                <img src={`http://127.0.0.1:8000/api/v1/react/photo?fileId=${props.photoId}`} />
+                <img src={`${process.env.BACKEND_URL}${process.env.BACKEND_GET_PHOTO}${props.photoId}`} />
             </div>
             <div className={styles["music-item-content"]}>
                 <div className={styles["music-item-name"]}>
