@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import photoReducer from "./features/photo/photoSlice";
-import musicReducer from "./features/music/musicSlice"
+import photoReducer from "./features/photo/photoReducer";
+import musicReducer from "./features/music/musicReducer"
 import userReducer from "./features/user/userReducer"
 
 const store = configureStore({

@@ -1,0 +1,45 @@
+.music-item {
+    border-radius: 10px;
+    grid-template-columns: 5em auto 30%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    height: 4em;
+}
+.music-item:hover {
+    background-color: rgba(114, 114, 114, 0.5);
+}
+.music-item-image {
+    height: 4em;
+}
+#music-item-play-container {
+    width: 95%;
+    height: 90%;
+    z-index: 1;
+    position: absolute;
+}
+#music-item-play {
+    position: absolute;
+    width: 4em;
+}
+.music-item-image img {
+    position: absolute;
+    height: 4em;
+    border-radius: 10px;
+}
+.music-item-content {
+    margin-left: 10px;
+    align-self: center;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+.music-item-name {
+    width: 100%;
+}
+.music-item-text {
+    width: 100%;
+}
+.music-item-prediction {
+
+}

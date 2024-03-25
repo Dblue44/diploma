@@ -2,9 +2,10 @@ import React, {useEffect} from "react";
 import {useAppSelector} from "../../redux/hooks";
 import {useNavigate} from "react-router-dom";
 import Home from "./Home";
+import Footer from "../../components/footer/Footer";
 
 
-const MenuContainer = () => {
+const HomeContainer = () => {
     const navigate = useNavigate();
     const isPhotoLoaded = useAppSelector((state) => state.user.loadPhoto);
 
@@ -15,8 +16,12 @@ const MenuContainer = () => {
     }, [isPhotoLoaded, navigate])
 
     return (
-        <Home/>
+        <>
+            <Home/>
+            <Footer/>
+        </>
+
     )
 }
 
-export default MenuContainer;
+export default HomeContainer;
