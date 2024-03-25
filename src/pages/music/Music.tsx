@@ -94,7 +94,7 @@ const Music = (props: IMusicProps) => {
             } else {
                 setListenProgress(audio.currentTime);
             }
-        }, 1000);
+        }, 500);
     };
     const toNextTrack = () => {
 

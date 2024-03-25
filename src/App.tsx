@@ -2,7 +2,6 @@ import React, {Suspense, useMemo} from 'react';
 import './App.module.css';
 import {Grid} from "@mui/material";
 import Menu from "./components/menu/Menu";
-import Footer from "./components/footer/Footer";
 import HomeContainer from "./pages/home/HomeContainer"
 import MusicContainer from "./pages/music/MusicContainer"
 import {Route, Routes} from "react-router-dom";

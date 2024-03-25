@@ -93,7 +93,8 @@ const Player = (props: IPlayerProps) => {
                     </Grid>
                 </Grid>
             </Grid>
-            {props.isLoadingMusic ? <CircularProgress/> :
+            {props.isLoadingMusic ?
+                <CircularProgress/> :
                 <Grid item md={6}>
                     <Grid container spacing={0} className={styles['play-container']}>
                         <Grid
