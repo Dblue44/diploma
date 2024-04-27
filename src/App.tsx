@@ -6,16 +6,10 @@ import HomeContainer from "./pages/home/HomeContainer"
 import MusicContainer from "./pages/music/MusicContainer"
 import {Route, Routes} from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css'
-import {loadErrorMessages, loadDevMessages} from "@apollo/client/dev";
 import FallbackLoading from "./components/loader/FallbackLoading";
 import {ThemeProvider, createTheme} from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import {useAppSelector} from "./redux/hooks";
-
-
-// Adds messages only in a dev environment
-loadDevMessages();
-loadErrorMessages();
 
 
 function App() {

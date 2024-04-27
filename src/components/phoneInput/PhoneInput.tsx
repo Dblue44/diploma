@@ -1,10 +1,11 @@
 import React from "react";
 import Container from "@mui/material/Container";
-import styles from "./Phone.module.css";
+import styles from "./PhoneInput.module.css";
 import {Typography} from "@mui/material";
 import MusicCard from "../musicCard/MusicCard";
+import PhotoInput from "../photoInput/PhotoInput";
 
-const Phone = () => {
+const PhoneInput = () => {
     return (
         <Container className={styles["phone"]}>
             <Typography
@@ -16,12 +17,10 @@ const Phone = () => {
             </Typography>
             <Container className={styles["phone-content"]}>
                 <MusicCard/>
-                <MusicCard/>
-                <MusicCard/>
-                <MusicCard/>
+                <PhotoInput/>
             </Container>
         </Container>
     );
 };
 
-export default Phone;
+export default PhoneInput;

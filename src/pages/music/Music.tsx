@@ -4,9 +4,10 @@ import styles from "./Music.module.css";
 import {useAppDispatch, useAppSelector} from "../../redux/hooks";
 import {updateListenState, updatePlayState} from "../../redux/features/user/userReducer";
 
+import { PieChart } from '@mui/x-charts/PieChart';
+import {MakeOptional} from "@mui/x-charts/models/helpers";
+import {PieSeriesType, PieValueType} from "@mui/x-charts";
 import {Container, Grid, List, ListItem} from "@mui/material";
-import {Chart as ChartJS, ArcElement, Tooltip, Legend, ChartData} from 'chart.js';
-import {Pie} from 'react-chartjs-2';
 import {motion, Variants} from "framer-motion";
 
 import MusicItem from "../../components/musicItem/MusicItem";
@@ -16,11 +17,9 @@ import useAudio from "../../hooks/useAudio";
 
 import {getMusic, updateCurrentTrack} from "../../redux/features/music/musicReducer";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
-
 interface IMusicProps {
     musics: TMusicTrack[];
-    chartData: ChartData<"pie">;
+    chartData: MakeOptional<PieSeriesType<MakeOptional<PieValueType, "id">>, "type">[];
 }
 
 const playerVariants: Variants = {
@@ -47,7 +46,8 @@ const playerVariants: Variants = {
 const Music = (props: IMusicProps) => {
     const [listenProgress, setListenProgress] = useState(0);
     const currentTrack = useAppSelector((state) => state.music.currentTrack)!;
-    const isLoadingMusic = useAppSelector((state) => state.music.isLoadingMusic);
+    //const isLoadingMusic = useAppSelector((state) => state.music.isLoadingMusic);
+    const isLoadingMusic = true;
     const theme = useAppSelector((state) => state.user.theme);
     const isListen: boolean = useAppSelector((state) => state.user.isListen);
     const isPlay: boolean = useAppSelector((state) => state.user.isPlay);
@@ -138,13 +138,11 @@ const Music = (props: IMusicProps) => {
                 </Grid>
                 <Grid item md={6} className={styles['prediction']}>
                     <Container className={styles['prediction-content']}>
-                        <Pie data={props.chartData} options={{
-                            plugins: {
-                                legend: {
-                                    display: false,
-                                },
-                            },
-                        }}/>
+                        <PieChart
+                            series={props.chartData}
+                            width={400}
+                            height={400}
+                        />
                     </Container>
                 </Grid>
                 {!isLoadingMusic ?? <Grid

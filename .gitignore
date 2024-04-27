@@ -11,7 +11,8 @@
 # production
 /build
 
-.idea/
+.idea/*
+!.idea/rcb-settings.xml
 
 # misc
 .DS_Store
@@ -23,6 +24,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-/src/redux/
 /package-lock.json
 /yarn.lock

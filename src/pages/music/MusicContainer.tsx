@@ -3,31 +3,23 @@ import Music from './Music'
 import {useAppDispatch, useAppSelector} from "../../redux/hooks";
 import {useNavigate} from "react-router-dom";
 import {Prediction} from "../../redux/features/photo/photoReducer";
-import {ChartData} from "chart.js/dist/types";
 import {TMusicTrack} from "../../redux/features/music/musicReducer";
 
-const data: ChartData<"pie"> = {
-    labels: ['Весёлый', 'Грустный', 'Нейтральный', 'Агрессивный'],
-    datasets: [
-        {
-            label: '%',
-            data: [0, 0, 0, 0],
-            backgroundColor: [
-                'rgba(75, 192, 192, 0.6)',
-                'rgba(54, 162, 235, 0.6)',
-                'rgba(255, 206, 86, 0.6)',
-                'rgba(255, 99, 132, 0.6)',
-            ],
-            borderColor: [
-                'rgba(75, 192, 192, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(255, 99, 132, 1)',
-            ],
-            borderWidth: 1,
-        },
-    ],
-};
+const data = [
+    {
+        data: [
+            { id: 0, value: 0, label: 'Happy' },
+            { id: 1, value: 0, label: 'Sad' },
+            { id: 2, value: 0, label: 'Normal' },
+            { id: 3, value: 0, label: 'Angry' },
+        ],
+        innerRadius: 4,
+        outerRadius: 150,
+        paddingAngle: 4,
+        cornerRadius: 5,
+        cx: 120
+    },
+];
 const MusicContainer = () => {
     const musics: TMusicTrack[] = useAppSelector((state) => state.music.musicList);
     const prediction: Prediction = useAppSelector((state) => state.photo.prediction);
@@ -40,8 +32,13 @@ const MusicContainer = () => {
         }
     }, [isPhotoLoaded, navigate])
     */
-    const chartData: ChartData<"pie"> = useMemo<ChartData<"pie">>(() => {
-        data.datasets[0].data = [prediction.happy, prediction.sad, prediction.normal, prediction.angry];
+    const chartData = useMemo(() => {
+        const currentData = data[0];
+        currentData.data[0].value = prediction.happy;
+        currentData.data[1].value = prediction.sad;
+        currentData.data[2].value = prediction.normal;
+        currentData.data[3].value = prediction.angry;
+        data[0] = currentData;
         return data;
     }, [prediction]);
 
@@ -50,6 +47,7 @@ const MusicContainer = () => {
             musics={musics}
             chartData={chartData}
         />
+
     )
 }
 
