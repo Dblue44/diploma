@@ -1,21 +1,18 @@
 import React, {ReactNode, useEffect, useMemo, useRef, useState} from "react";
 import styles from "./Music.module.css";
-
 import {useAppDispatch, useAppSelector} from "../../redux/hooks";
-import {updateListenState, updatePlayState} from "../../redux/features/user/userReducer";
-
+import {updatePlayState} from "../../redux/features/user/userReducer";
 import { PieChart } from '@mui/x-charts/PieChart';
 import {MakeOptional} from "@mui/x-charts/models/helpers";
 import {PieSeriesType, PieValueType} from "@mui/x-charts";
 import {Container, Grid, List, ListItem} from "@mui/material";
 import {motion, Variants} from "framer-motion";
-
 import MusicItem from "../../components/musicItem/MusicItem";
 import {TMusicTrack} from "../../redux/features/music/musicReducer";
 import Player from "../../components/player/Player";
 import useAudio from "../../hooks/useAudio";
-
 import {getMusic, updateCurrentTrack} from "../../redux/features/music/musicReducer";
+
 
 interface IMusicProps {
     musics: TMusicTrack[];
@@ -46,12 +43,10 @@ const playerVariants: Variants = {
 const Music = (props: IMusicProps) => {
     const [listenProgress, setListenProgress] = useState(0);
     const currentTrack = useAppSelector((state) => state.music.currentTrack)!;
-    //const isLoadingMusic = useAppSelector((state) => state.music.isLoadingMusic);
-    const isLoadingMusic = true;
+    const isLoadingMusic = useAppSelector((state) => state.music.isLoadingMusic);
     const theme = useAppSelector((state) => state.user.theme);
     const isListen: boolean = useAppSelector((state) => state.user.isListen);
     const isPlay: boolean = useAppSelector((state) => state.user.isPlay);
-
     const audio = useAudio({src: currentTrack?.src!, volume: 1, playbackRate: 1});
     const intervalRef: React.MutableRefObject<NodeJS.Timer | undefined> = useRef();
 
@@ -74,9 +69,8 @@ const Music = (props: IMusicProps) => {
         );
     }
     const setCurrentMusic = (event: React.MouseEvent<HTMLDivElement>, musicId: string) => {
-        dispatch(getMusic(musicId));
         dispatch(updateCurrentTrack(props.musics.find(music => music.id === musicId)!));
-        dispatch(updateListenState(true));
+        dispatch(getMusic(musicId));
     };
     const changePlayStatus = () => {
         dispatch(updatePlayState());
@@ -106,6 +100,12 @@ const Music = (props: IMusicProps) => {
     }, [props.musics]);
 
     useEffect(() => {
+        if (currentTrack?.src) {
+            audio.src = currentTrack.src!
+        }
+    }, [currentTrack, audio])
+
+    useEffect( () => {
         if (!isLoadingMusic) {
             if (isPlay) {
                 audio.play();
@@ -145,27 +145,26 @@ const Music = (props: IMusicProps) => {
                         />
                     </Container>
                 </Grid>
-                {!isLoadingMusic ?? <Grid
-                        item
-                        md={12}
-                        className={styles['music-player']}
-                        component={motion.div}
-                        animate={isListen ? "open" : "closed"}
-                        variants={playerVariants}
-                    >
-                        <Player
-                            trackName={currentTrack?.trackName ?? ""}
-                            artist={currentTrack?.artist ?? ""}
-                            isListen={isListen}
-                            isLoadingMusic={isLoadingMusic}
-                            isPlay={isPlay}
-                            duration={audio.duration}
-                            listenProgress={listenProgress}
-                            playFn={changePlayStatus}
-                            changeDuration={changeDuration}
-                        />
-                    </Grid>
-                }
+                <Grid
+                    item
+                    md={12}
+                    className={styles['music-player']}
+                    component={motion.div}
+                    animate={isListen ? "open" : "closed"}
+                    variants={playerVariants}
+                >
+                    <Player
+                        trackName={currentTrack?.trackName ?? ""}
+                        artist={currentTrack?.artist ?? ""}
+                        isListen={isListen}
+                        isLoadingMusic={isLoadingMusic}
+                        isPlay={isPlay}
+                        duration={audio.duration}
+                        listenProgress={listenProgress}
+                        playFn={changePlayStatus}
+                        changeDuration={changeDuration}
+                    />
+                </Grid>
             </Grid>
         </Container>
     );

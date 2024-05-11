@@ -1,11 +1,17 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {getMusic} from "../music/musicReducer";
+import {TMusicTrack} from "../music/musicReducer";
 
 
 type Photo = {
     prediction: Prediction,
     isLoading: boolean,
     error: string,
+}
+
+type TBackendResponse = {
+    music?: TMusicTrack[],
+    prediction?: Prediction,
+    error?: string
 }
 
 export type Prediction = {
@@ -26,16 +32,24 @@ const initialState: Photo = {
     error: "",
 };
 
-export const uploadPhoto = createAsyncThunk(
+export const uploadPhoto = createAsyncThunk<TBackendResponse | void, File>(
     'photo/uploadPhoto',
     async function (photo: File) {
         const formData = new FormData();
         formData.append("file", photo, photo.name);
-        return await fetch(`http://127.0.0.1:8000/api/v1/react/uploadPhoto`, {
+        return await fetch(`http://158.160.164.49:8085/api/v1/react/uploadPhoto`, {
             method: 'POST',
             body: formData,
         })
-            .then((response) => console.log("Response:", response))
+            .then((response) => {
+                if (response.status === 200) {
+                    return response.json()
+                }
+                return {error: "Лица на фотографии не найдены"}
+            })
+            .then((response: TBackendResponse) => {
+                return response
+            })
             .catch(err => console.log("Error:", err));
     }
 );
@@ -56,7 +70,12 @@ const photoReducer = createSlice({
                 state.isLoading = true;
             })
             .addCase(uploadPhoto.fulfilled, (state, action) => {
-
+                if (action.payload?.error) {
+                    state.error = action.payload.error
+                } else if (action.payload?.prediction){
+                    state.prediction = action.payload.prediction
+                    state.error = ""
+                }
                 state.isLoading = false;
             })
             .addCase(uploadPhoto.rejected, (state) => {

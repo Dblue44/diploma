@@ -37,8 +37,8 @@ const HomeContainer = () => {
     };
 
     useEffect(() => {
-        if (!isPhotoLoaded) {
-            navigate("/")
+        if (isPhotoLoaded) {
+            navigate("/music")
         }
     }, [isPhotoLoaded, navigate])
 
@@ -68,8 +68,10 @@ const HomeContainer = () => {
                 </IconButton>
                 <DialogContent dividers>
                     <Typography gutterBottom>
-                        При выполнении запроса произошла ошибка,
-                        {errorMessage === "Failed to fetch" ? " в данный момент сервис недоступен" : ""}
+                        При выполнении запроса произошла ошибка.
+                    </Typography>
+                    <Typography gutterBottom>
+                        {errorMessage === "Failed to fetch" ? "В данный момент сервис недоступен" : errorMessage}
                     </Typography>
                 </DialogContent>
                 <DialogActions>

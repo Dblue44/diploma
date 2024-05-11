@@ -6,6 +6,7 @@ import {Typography} from "@mui/material";
 import PhotoInput from "../../components/photoInput/PhotoInput";
 import Phone from "../../components/phone/Phone";
 import PhoneInput from "../../components/phoneInput/PhoneInput";
+
 const Home = () => {
     const [width, setWidth] = useState(window.innerWidth);
 

@@ -13,6 +13,8 @@
     "@mui/styled-engine-sc": "^5.12.0",
     "@mui/utils": "^5.14.4",
     "@mui/x-charts": "^7.0.0",
+    "@react-buddy/ide-toolbox": "^2.4.0",
+    "@react-buddy/palette-mui": "^5.0.1",
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -31,6 +33,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
+    "react-h5-audio-player": "^3.9.1",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.45.4",
     "react-redux": "^8.1.2",
@@ -41,9 +44,7 @@
     "redux": "^4.2.1",
     "styled-components": "^5.3.11",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4",
-    "@react-buddy/ide-toolbox": "^2.4.0",
-    "@react-buddy/palette-mui": "^5.0.1"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "concurrently \"npm run dev\" \"npm run server\"",

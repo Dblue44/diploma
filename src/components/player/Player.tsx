@@ -31,6 +31,7 @@ const leftContentVariants: Variants = {
         transition: {duration: 0.1}
     }
 };
+
 const topContentVariants: Variants = {
     open: {
         opacity: 1,
@@ -43,6 +44,7 @@ const topContentVariants: Variants = {
         transition: {duration: 0.1}
     }
 };
+
 const playVariants: Variants = {
     open: {
         opacity: 1,
@@ -55,12 +57,14 @@ const playVariants: Variants = {
         transition: {duration: 0.2}
     }
 }
+
 const TinyText = styled(Typography)({
     fontSize: '0.75rem',
     opacity: 0.38,
     fontWeight: 500,
     letterSpacing: 0.2,
 });
+
 const Player = (props: IPlayerProps) => {
     function formatDuration(value: number) {
         const minute = Math.floor(value / 60);
@@ -94,7 +98,10 @@ const Player = (props: IPlayerProps) => {
                 </Grid>
             </Grid>
             {props.isLoadingMusic ?
-                <CircularProgress/> :
+                <Grid item md={6} className={styles['player-progress']}>
+                    <CircularProgress/>
+                </Grid>
+                 :
                 <Grid item md={6}>
                     <Grid container spacing={0} className={styles['play-container']}>
                         <Grid
@@ -158,7 +165,6 @@ const Player = (props: IPlayerProps) => {
                                     },
                                 }}
                             />
-
                         </Grid>
                     </Grid>
                 </Grid>

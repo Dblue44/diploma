@@ -1,41 +1,15 @@
-import React, {useState} from 'react'
+import React from 'react'
 import styles from "./PhotoInput.module.css";
 import {motion} from "framer-motion";
 import {Container, CircularProgress} from "@mui/material";
 import InputDark from "../../img/input_dark.svg"
 import InputLight from "../../img/input_light.svg"
-import {useNavigate} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../redux/hooks";
-import {updateLoadPhoto} from "../../redux/features/user/userReducer";
-import {setErrorMessage, updatePrediction, uploadPhoto} from "../../redux/features/photo/photoReducer";
-import {addMusic} from "../../redux/features/music/musicReducer";
-
-interface IMusic {
-    id: string
-    artist: string
-    trackName: string
-    photoId: string
-}
-
-interface IPrediction {
-    happy: number
-    sad: number
-    normal: number
-    angry: number
-}
-
-interface IPhotoUpload {
-    photoUpload: {
-        music: IMusic[]
-        prediction: IPrediction
-    }
-}
+import {uploadPhoto} from "../../redux/features/photo/photoReducer";
 
 const PhotoInput = () => {
     const theme = useAppSelector((state) => state.user.theme)
     const isLoading = useAppSelector((state) => state.photo.isLoading)
-    //const [isLoading, setIsLoading] = useState(false);
-    const navigate = useNavigate();
     const dispatch = useAppDispatch();
 
     const handleImageUpload = async ({
@@ -45,7 +19,6 @@ const PhotoInput = () => {
                                          },
                                      }: any) => {
         if (validity.valid) {
-            //setIsLoading(true);
             dispatch(uploadPhoto(file))
         }
     };
