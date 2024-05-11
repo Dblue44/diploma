@@ -3,15 +3,16 @@
     border-radius: 10px;
 }
 .music-track-info {
-    display: flex;
-    flex-wrap: wrap;
     align-content: center;
-    justify-content: flex-start;
 }
 .music-track-info div {
     padding: 2px;
 }
 .play-container {
+    justify-content: center;
+}
+.player-progress {
+    display: flex;
     justify-content: center;
 }
 .play-group {

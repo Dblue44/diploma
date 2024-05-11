@@ -1,0 +1,55 @@
+.phone {
+    width: 80% !important;
+    height: 420px;
+    background-image: url("../../img/iphone1.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: initial;
+    position: relative;
+}
+
+.phone-text {
+    text-align: center;
+    font-family: "Montserrat", serif !important;
+    font-weight: 1000 !important;
+    font-size: 1.8em !important;
+    letter-spacing: 5px !important;
+    text-transform: uppercase;
+    padding-top: 2.5em;
+}
+
+@media screen and (max-width: 600px){
+    .phone-text {
+        font-size: 1.5em !important;
+    }
+    .phone-content {
+        padding-left: 22px !important;
+        padding-right: 22px !important;
+    }
+}
+@media screen and (max-width: 550px){
+    .phone-text {
+        font-size: 1.2em !important;
+    }
+}
+@media screen and (max-width: 480px){
+    .phone{
+        width: 90% !important;
+    }
+}
+@media screen and (max-width: 400px){
+    .phone-text {
+        font-size: 0.8em !important;
+    }
+}
+@media screen and (max-width: 380px){
+    .phone{
+        width: 100% !important;
+    }
+}
+@media screen and (max-width: 350px){
+    .phone-content {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+}

@@ -17,6 +17,27 @@
     text-align: center;
     padding: 0 !important;
 }
+.new-photo {
+    position: relative;
+    flex-wrap: wrap !important;
+    display: flex !important;
+    justify-content: center;
+    align-content: center;
+    padding: 0 !important;
+}
+.new-photo input {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    opacity: 0;
+}
+.new-photo label {
+    font-family: "Montserrat", serif;
+    font-weight: 600;
+}
 .lang {
     text-align: center;
     padding: 0 !important;

@@ -24,10 +24,12 @@
 
 .light {
     border: dashed black 3px;
+    color: black;
 }
 
 .dark {
     border: dashed white 3px;
+    color: white;
 }
 
 .input_box {
@@ -40,4 +42,32 @@
     justify-content: center;
     align-content: center;
     border-radius: 1em;
+}
+
+.loading-container {
+    display: flex !important;
+    margin-top: 7em;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.loader {
+    width: 100px !important;
+    height: 100px !important;
+}
+@media screen and (max-width: 1100px) {
+    .input_box {
+        margin-top: 1em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .input_box {
+        width: 10em !important;
+        height: 10em !important;
+    }
+    .input_box label {
+        font-size: 0.8rem;
+    }
 }

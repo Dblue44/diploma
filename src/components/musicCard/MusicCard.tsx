@@ -17,6 +17,7 @@ const MusicCard = () => {
                 transition: {duration: 0.3}
             }}
         >
+            {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
             <img src={MusicCardPhoto} alt={"Photo"}/>
             <div className={styles["music-card-text-container"]}>
                 <div className={`${theme ? styles["dark"] : styles["light"]} ${styles["music-card-name"]}`}>
