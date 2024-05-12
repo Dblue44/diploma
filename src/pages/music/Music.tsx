@@ -112,17 +112,17 @@ const Music = (props: IMusicProps) => {
 
     useEffect(() => {
         if (currentTrack?.src) {
-            //audio.src = currentTrack.src!
+            audio.src = currentTrack.src!
         }
     }, [currentTrack, audio])
 
     useEffect( () => {
         if (!isLoadingMusic) {
             if (isPlay) {
-                //audio.play();
-                //startTimer();
+                audio.play();
+                startTimer();
             } else {
-                //audio.pause();
+                audio.pause();
             }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
