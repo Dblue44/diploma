@@ -72,6 +72,20 @@ const Music = (props: IMusicProps) => {
         dispatch(updateCurrentTrack(props.musics.find(music => music.id === musicId)!));
         dispatch(getMusic(musicId));
     };
+    const toNextTrack = () => {
+        const currentIndex = props.musics.indexOf(currentTrack)
+        if (currentIndex < props.musics.length - 1) {
+            dispatch(updateCurrentTrack(props.musics[currentIndex + 1]));
+            dispatch(getMusic(props.musics[currentIndex + 1].id));
+        }
+    }
+    const toPrevTrack = () => {
+        const currentIndex = props.musics.indexOf(currentTrack)
+        if (currentIndex > 0) {
+            dispatch(updateCurrentTrack(props.musics[currentIndex - 1]));
+            dispatch(getMusic(props.musics[currentIndex - 1].id));
+        }
+    }
     const changePlayStatus = () => {
         dispatch(updatePlayState());
     };
@@ -90,9 +104,6 @@ const Music = (props: IMusicProps) => {
             }
         }, 500);
     };
-    const toNextTrack = () => {
-
-    }
 
     const musicList = useMemo<ReactNode[]>(() => {
         return props.musics.map((musicTrack, index) => getMusicTrack(musicTrack, index));
@@ -101,17 +112,17 @@ const Music = (props: IMusicProps) => {
 
     useEffect(() => {
         if (currentTrack?.src) {
-            audio.src = currentTrack.src!
+            //audio.src = currentTrack.src!
         }
     }, [currentTrack, audio])
 
     useEffect( () => {
         if (!isLoadingMusic) {
             if (isPlay) {
-                audio.play();
-                startTimer();
+                //audio.play();
+                //startTimer();
             } else {
-                audio.pause();
+                //audio.pause();
             }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -162,6 +173,8 @@ const Music = (props: IMusicProps) => {
                         duration={audio.duration}
                         listenProgress={listenProgress}
                         playFn={changePlayStatus}
+                        nextFn={toNextTrack}
+                        prevFn={toPrevTrack}
                         changeDuration={changeDuration}
                     />
                 </Grid>
