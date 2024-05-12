@@ -8,18 +8,9 @@
 .music-track-info div {
     padding: 2px;
 }
-.play-container {
-    justify-content: center;
-}
 .player-progress {
     display: flex;
     justify-content: center;
-}
-.play-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
 }
 #music-track-name {
     font-size: 1em;
@@ -28,8 +19,4 @@
 #music-track-author {
     font-size: 0.8em;
     font-weight: 300;
-}
-#play-button {
-    width: 40px;
-    height: 40px;
 }

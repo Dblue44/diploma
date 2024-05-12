@@ -37,7 +37,7 @@ export const uploadPhoto = createAsyncThunk<TBackendResponse | void, File>(
     async function (photo: File) {
         const formData = new FormData();
         formData.append("file", photo, photo.name);
-        return await fetch(`http://158.160.164.49:8085/api/v1/react/uploadPhoto`, {
+        return await fetch(`http://${process.env.BACKEND_URL}/api/v1/react/uploadPhoto`, {
             method: 'POST',
             body: formData,
         })
@@ -50,7 +50,9 @@ export const uploadPhoto = createAsyncThunk<TBackendResponse | void, File>(
             .then((response: TBackendResponse) => {
                 return response
             })
-            .catch(err => console.log("Error:", err));
+            .catch(err => {
+                return {error: "Сервис в данный момент недоступен. Попробуйте позже"}
+            });
     }
 );
 
