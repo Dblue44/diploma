@@ -44,8 +44,6 @@
 .prediction-content {
     display: flex !important;
     justify-content: center;
-    width: 60%;
-    height: 60%;
 }
 .music-player {
     border-radius: 10px 10px 0 0;

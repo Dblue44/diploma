@@ -1,4 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {uploadPhoto} from "../photo/photoReducer";
+import {getMusic} from "../music/musicReducer";
 
 type UserState = {
     userId: number | null;
@@ -36,6 +38,22 @@ const userReducer = createSlice({
             state.isPlay = !state.isPlay;
         }
     },
+    extraReducers: (builder) => {
+        builder.addCase(uploadPhoto.fulfilled, (state, action) => {
+            if (action.payload?.music && action.payload?.prediction) {
+                state.loadPhoto = true;
+            }
+        })
+        builder.addCase(getMusic.pending, (state, action) => {
+            state.isListen = true;
+        })
+        builder.addCase(getMusic.fulfilled, (state, action) => {
+            if (action.payload.src) {
+                state.isListen = true;
+                state.isPlay = true;
+            }
+        })
+    }
 });
 export const {updateTheme, updateLoadPhoto, updateListenState, updatePlayState} = userReducer.actions;
 export default userReducer.reducer;
