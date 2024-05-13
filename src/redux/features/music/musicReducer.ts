@@ -23,7 +23,7 @@ const initialState: Music = {
 export const getMusic = createAsyncThunk<{ musicId: string, src: string }, string>(
     'music/getMusic',
     async function (musicId: string) {
-        return await fetch(`http://${process.env.REACT_APP_BACKEND_URL}/api/v1/react/music?musicId=${musicId}`, {
+        return await fetch(`https://${process.env.REACT_APP_BACKEND_URL}/backendapi/v1/react/music?musicId=${musicId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/octet-stream',

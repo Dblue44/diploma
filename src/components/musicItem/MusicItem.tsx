@@ -42,7 +42,7 @@ const MusicItem = (props: IMusicProps) => {
                 <img id={styles["music-item-play"]} alt={"music-play-icon"} src={play}/>
             </motion.div>
             <div className={styles["music-item-image"]}>
-                <img src={`http://${process.env.REACT_APP_BACKEND_URL}/api/v1/react/photo?fileId=${props.photoId}`} alt={"music-logo"}/>
+                <img src={`https://${process.env.REACT_APP_BACKEND_URL}/backendapi/v1/react/photo?fileId=${props.photoId}`} alt={"music-logo"}/>
             </div>
             <div className={styles["music-item-content"]}>
                 <div className={styles["music-item-name"]}>
