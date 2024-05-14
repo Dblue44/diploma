@@ -1,4 +1,4 @@
-import React, {ReactNode, useEffect, useMemo, useRef, useState} from "react";
+import React, {useEffect, useMemo, useRef, useState} from "react";
 import styles from "./Music.module.css";
 import {useAppDispatch, useAppSelector} from "../../redux/hooks";
 import {updatePlayState} from "../../redux/features/user/userReducer";
@@ -52,26 +52,11 @@ const Music = (props: IMusicProps) => {
 
     const dispatch = useAppDispatch();
 
-    const getMusicTrack = (music: TMusicTrack, index: number): ReactNode => {
-        return (
-            <ListItem
-                key={index}
-            >
-                <MusicItem
-                    id={music.id}
-                    artist={music.artist}
-                    trackName={music.trackName}
-                    photoId={music.photoId}
-                    theme={theme}
-                    clickFn={setCurrentMusic}
-                />
-            </ListItem>
-        );
-    }
-    const setCurrentMusic = (event: React.MouseEvent<HTMLDivElement>, musicId: string) => {
+    const setCurrentMusic = useMemo(() => (event: React.MouseEvent<HTMLDivElement>, musicId: string) => {
         dispatch(updateCurrentTrack(props.musics.find(music => music.id === musicId)!));
         dispatch(getMusic(musicId));
-    };
+    }, [dispatch, props.musics]);
+    
     const toNextTrack = () => {
         const currentIndex = props.musics.indexOf(currentTrack)
         if (currentIndex < props.musics.length - 1) {
@@ -104,11 +89,6 @@ const Music = (props: IMusicProps) => {
             }
         }, 500);
     };
-
-    const musicList = useMemo<ReactNode[]>(() => {
-        return props.musics.map((musicTrack, index) => getMusicTrack(musicTrack, index));
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [props.musics]);
 
     useEffect(() => {
         if (currentTrack?.src) {
@@ -144,7 +124,20 @@ const Music = (props: IMusicProps) => {
                         sx={{overflow: 'auto', height: '35em'}}
                         className={styles['music-list-ul']}
                     >
-                        {musicList}
+                        {props.musics.map((music, index) => (
+                            <ListItem
+                                key={index}
+                            >
+                                <MusicItem
+                                    id={music.id}
+                                    artist={music.artist}
+                                    trackName={music.trackName}
+                                    photoId={music.photoId}
+                                    theme={theme}
+                                    clickFn={setCurrentMusic}
+                                />
+                            </ListItem>
+                        ))}
                     </List>
                 </Grid>
                 <Grid item md={6} className={styles['prediction']}>
