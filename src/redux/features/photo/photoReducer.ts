@@ -37,7 +37,7 @@ export const uploadPhoto = createAsyncThunk<TBackendResponse | void, File>(
     async function (photo: File) {
         const formData = new FormData();
         formData.append("file", photo, photo.name);
-        return await fetch(`https://${process.env.REACT_APP_BACKEND_URL}/backendapi/v1/react/uploadPhoto`, {
+        return await fetch(`https://${process.env.REACT_APP_BACKEND_URL}/api/v1/react/uploadPhoto`, {
             method: 'POST',
             body: formData,
         })
