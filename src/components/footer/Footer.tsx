@@ -8,7 +8,7 @@ const Footer = () => {
 
     return (
         <Container className={styles["footer"]}>
-            123
+            © 2024 Все права защищены. Дипломная работа Стахеева Дмитрий. Сделано с любовью и старанием.
         </Container>
     )
 }
