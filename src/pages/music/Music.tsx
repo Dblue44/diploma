@@ -47,7 +47,7 @@ const Music = (props: IMusicProps) => {
     const theme = useAppSelector((state) => state.user.theme);
     const isListen: boolean = useAppSelector((state) => state.user.isListen);
     const isPlay: boolean = useAppSelector((state) => state.user.isPlay);
-    const audio = useAudio({src: currentTrack?.src!, volume: 1, playbackRate: 1});
+    const audio = useAudio({src: currentTrack?.src!, volume: 0.7, playbackRate: 1});
     const intervalRef: React.MutableRefObject<NodeJS.Timer | undefined> = useRef();
 
     const dispatch = useAppDispatch();
@@ -57,13 +57,14 @@ const Music = (props: IMusicProps) => {
         dispatch(getMusic(musicId));
     }, [dispatch, props.musics]);
     
-    const toNextTrack = () => {
+    const toNextTrack = useMemo(() =>() => {
         const currentIndex = props.musics.indexOf(currentTrack)
         if (currentIndex < props.musics.length - 1) {
             dispatch(updateCurrentTrack(props.musics[currentIndex + 1]));
             dispatch(getMusic(props.musics[currentIndex + 1].id));
         }
-    }
+    }, [currentTrack, dispatch, props.musics]);
+
     const toPrevTrack = () => {
         const currentIndex = props.musics.indexOf(currentTrack)
         if (currentIndex > 0) {
@@ -71,15 +72,18 @@ const Music = (props: IMusicProps) => {
             dispatch(getMusic(props.musics[currentIndex - 1].id));
         }
     }
+
     const changePlayStatus = () => {
         dispatch(updatePlayState());
     };
+
     const changeDuration = (value: number) => {
         clearInterval(intervalRef.current);
         audio.currentTime = value;
         setListenProgress(value);
     }
-    const startTimer = () => {
+
+    const startTimer = useMemo(() => () => {
         clearInterval(intervalRef.current);
         intervalRef.current = setInterval(() => {
             if (audio.ended) {
@@ -88,7 +92,7 @@ const Music = (props: IMusicProps) => {
                 setListenProgress(audio.currentTime);
             }
         }, 500);
-    };
+    }, [audio.currentTime, audio.ended, toNextTrack]);
 
     useEffect(() => {
         if (currentTrack?.src) {
@@ -105,8 +109,7 @@ const Music = (props: IMusicProps) => {
                 audio.pause();
             }
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isPlay, isLoadingMusic]);
+    }, [isPlay, isLoadingMusic, audio, startTimer]);
 
     return (
         <Container>
@@ -146,6 +149,14 @@ const Music = (props: IMusicProps) => {
                             series={props.chartData}
                             width={400}
                             height={400}
+                            margin={{ top: 10, bottom: 10, left: 80, right:10 }}
+                            slotProps={{
+                                legend: {
+                                    direction: 'row',
+                                    position: { vertical: 'bottom', horizontal: 'middle' },
+                                    padding: 0,
+                                },
+                            }}
                         />
                     </Container>
                 </Grid>

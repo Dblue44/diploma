@@ -39,7 +39,7 @@
 .prediction {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
 }
 .prediction-content {
     display: flex !important;

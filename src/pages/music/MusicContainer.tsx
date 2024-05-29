@@ -19,16 +19,18 @@ import {styled} from "@mui/material/styles";
 const data = [
     {
         data: [
-            { id: 0, value: 0, label: 'Happy' },
-            { id: 1, value: 0, label: 'Sad' },
-            { id: 2, value: 0, label: 'Normal' },
-            { id: 3, value: 0, label: 'Angry' },
+            { id: 0, value: 0, color: '#5EC869', label: 'Happy' },
+            { id: 1, value: 0, color: '#8C8C8C', label: 'Sad' },
+            { id: 2, value: 0, color: '#6B92DE', label: 'Normal' },
+            { id: 3, value: 0, color: '#EB8396', label: 'Angry' },
         ],
-        innerRadius: 4,
+        innerRadius: 2,
         outerRadius: 150,
-        paddingAngle: 4,
-        cornerRadius: 5,
-        cx: 120
+        paddingAngle: 2,
+        cornerRadius: 3,
+        cx: 120,
+        enableRadialLabels: false,
+        enableSliceLabels: false,
     },
 ];
 
