@@ -58,7 +58,7 @@ const Music = (props: IMusicProps) => {
     }, [dispatch, props.musics]);
     
     const toNextTrack = useMemo(() =>() => {
-        const currentIndex = props.musics.indexOf(currentTrack)
+        const currentIndex = props.musics.map(music => music.id).indexOf(currentTrack.id)
         if (currentIndex < props.musics.length - 1) {
             dispatch(updateCurrentTrack(props.musics[currentIndex + 1]));
             dispatch(getMusic(props.musics[currentIndex + 1].id));
@@ -66,7 +66,7 @@ const Music = (props: IMusicProps) => {
     }, [currentTrack, dispatch, props.musics]);
 
     const toPrevTrack = () => {
-        const currentIndex = props.musics.indexOf(currentTrack)
+        const currentIndex = props.musics.map(music => music.id).indexOf(currentTrack.id)
         if (currentIndex > 0) {
             dispatch(updateCurrentTrack(props.musics[currentIndex - 1]));
             dispatch(getMusic(props.musics[currentIndex - 1].id));
