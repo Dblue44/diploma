@@ -57,23 +57,23 @@ const Music = (props: IMusicProps) => {
         dispatch(getMusic(musicId));
     }, [dispatch, props.musics]);
     
-    const toNextTrack = useMemo(() =>() => {
+    const toNextTrack = () => {
         audio.pause();
         const currentIndex = props.musics.map(music => music.id).indexOf(currentTrack.id)
         if (currentIndex < props.musics.length - 1) {
             dispatch(updateCurrentTrack(props.musics[currentIndex + 1]));
             dispatch(getMusic(props.musics[currentIndex + 1].id));
         }
-    }, [audio, currentTrack.id, dispatch, props.musics]);
+    }
 
-    const toPrevTrack = useMemo(() =>() => {
+    const toPrevTrack = () => {
         audio.pause();
         const currentIndex = props.musics.map(music => music.id).indexOf(currentTrack.id)
         if (currentIndex > 0) {
             dispatch(updateCurrentTrack(props.musics[currentIndex - 1]));
             dispatch(getMusic(props.musics[currentIndex - 1].id));
         }
-    }, [audio, currentTrack.id, dispatch, props.musics]);
+    }
 
     const changePlayStatus = () => {
         dispatch(updatePlayState());
