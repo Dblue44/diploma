@@ -7,3 +7,9 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+.dark {
+    color: white;
+}
+.light {
+    color: black;
+}
