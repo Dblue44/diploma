@@ -4,7 +4,7 @@ import styles from "./Menu.module.css";
 import {Select, MenuItem, Grid} from "@mui/material";
 import {SelectChangeEvent} from '@mui/material/Select';
 import {useAppDispatch, useAppSelector} from "../../redux/hooks";
-import {updateTheme} from "../../redux/features/user/userReducer";
+import {updateLang, updateTheme} from "../../redux/features/user/userReducer";
 import {uploadPhoto} from "../../redux/features/photo/photoReducer";
 
 
@@ -26,6 +26,7 @@ const Menu = () => {
     };
 
     const handleLang = (event: SelectChangeEvent) => {
+        dispatch(updateLang(event.target.value === "0"));
         setLang(event.target.value);
     };
 
