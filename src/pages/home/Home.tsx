@@ -6,9 +6,11 @@ import {Typography} from "@mui/material";
 import PhotoInput from "../../components/photoInput/PhotoInput";
 import Phone from "../../components/phone/Phone";
 import PhoneInput from "../../components/phoneInput/PhoneInput";
+import {useAppSelector} from "../../redux/hooks";
 
 const Home = () => {
     const [width, setWidth] = useState(window.innerWidth);
+    const lang = useAppSelector((state) => state.user.lang);
 
     useEffect(() => {
         // @ts-ignore
@@ -38,7 +40,7 @@ const Home = () => {
                         variant="h6"
                         gutterBottom
                     >
-                        Музыка под настроение
+                        { lang ? "Музыка под настроение" : "Music for mood"}
                     </Typography>
                 </Grid>
                 {width > 700 ?
@@ -52,8 +54,7 @@ const Home = () => {
                                     variant="h6"
                                     gutterBottom
                                 >
-                                    AI проанализирует ваше
-                                    фото и составит плейлист
+                                    { lang ? "AI проанализирует ваше \n фото и составит плейлист" : "AI will analyze your photo \n and create a playlist"}
                                 </Typography>
                             </Container>
                             <PhotoInput/>
@@ -67,8 +68,7 @@ const Home = () => {
                                     variant="h6"
                                     gutterBottom
                                 >
-                                    AI проанализирует ваше
-                                    фото и составит плейлист
+                                    { lang ? "AI проанализирует ваше \n фото и составит плейлист" : "AI will analyze your photo \n and create a playlist"}
                                 </Typography>
                             </Container>
                         </Grid>

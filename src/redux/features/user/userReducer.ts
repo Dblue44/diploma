@@ -27,6 +27,9 @@ const userReducer = createSlice({
         updateTheme(state, action: PayloadAction<boolean>) {
             state.theme = action.payload;
         },
+        updateLang(state, action: PayloadAction<boolean>) {
+            state.theme = action.payload;
+        },
         updateLoadPhoto(state, action: PayloadAction<boolean>) {
             state.loadPhoto = action.payload;
         },
@@ -55,5 +58,5 @@ const userReducer = createSlice({
         })
     }
 });
-export const {updateTheme, updateLoadPhoto, updateListenState, updatePlayState} = userReducer.actions;
+export const {updateTheme, updateLoadPhoto, updateListenState, updateLang, updatePlayState} = userReducer.actions;
 export default userReducer.reducer;
