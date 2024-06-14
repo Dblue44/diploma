@@ -40,7 +40,7 @@ const Menu = () => {
             <Grid item md={1} className={styles["lang"]}>
                 <Select
                     variant={"outlined"}
-                    defaultValue={"0"}
+                    defaultValue={"RUS"}
                     value={lang}
                     onChange={handleLang}
                     className={styles["lang-selector"]}
