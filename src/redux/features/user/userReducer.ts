@@ -28,7 +28,7 @@ const userReducer = createSlice({
             state.theme = action.payload;
         },
         updateLang(state, action: PayloadAction<boolean>) {
-            state.theme = action.payload;
+            state.lang = action.payload;
         },
         updateLoadPhoto(state, action: PayloadAction<boolean>) {
             state.loadPhoto = action.payload;
