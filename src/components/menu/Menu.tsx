@@ -26,7 +26,7 @@ const Menu = () => {
     };
 
     const handleLang = (event: SelectChangeEvent) => {
-        dispatch(updateLang(event.target.value === "0"));
+        dispatch(updateLang(event.target.value === "RUS"));
         setLang(event.target.value);
     };
 
@@ -45,8 +45,8 @@ const Menu = () => {
                     onChange={handleLang}
                     className={styles["lang-selector"]}
                 >
-                    <MenuItem value={0}>RUS</MenuItem>
-                    <MenuItem value={1}>ENG</MenuItem>
+                    <MenuItem value={"RUS"}>RUS</MenuItem>
+                    <MenuItem value={"ENG"}>ENG</MenuItem>
                 </Select>
             </Grid>
             <Grid item md={1} className={styles["theme"]}>
