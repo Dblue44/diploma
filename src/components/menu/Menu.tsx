@@ -9,7 +9,7 @@ import {uploadPhoto} from "../../redux/features/photo/photoReducer";
 
 
 const Menu = () => {
-    const [lang, setLang] = React.useState("0");
+    const [lang, setLang] = React.useState("RUS");
     const [theme, setTheme] = React.useState("Dark");
     const isPhotoLoaded = useAppSelector((state) => state.user.loadPhoto);
     const dispatch = useAppDispatch();
